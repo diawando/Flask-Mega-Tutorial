@@ -24,7 +24,6 @@ def index():
     posts = current_user.followed_posts().paginate(
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False
     ) 
-    posts = current_user.followed_posts().all()
     return render_template('index.html', title='Home Page', form=form , posts=posts.items)
 
 @app.route('/login', methods = ['GET', 'POST'])
